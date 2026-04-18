@@ -23,8 +23,8 @@ export default function ProfilePage({ params }: { params: Promise<{ userId: stri
   const { user: authUser, token } = useAuth();
   const [profile, setProfile] = useState<User & { is_following?: boolean } | null>(null);
   const [posts, setPosts] = useState<Post[]>([]);
-  const [followers, setFollowers] = useState<User[]>([]);
-  const [following, setFollowing] = useState<User[]>([]);
+  const [followers, setFollowers] = useState<(User & { is_following?: boolean })[]>([]);
+  const [following, setFollowing] = useState<(User & { is_following?: boolean })[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [isFollowing, setIsFollowing] = useState(false);
   const [followLoading, setFollowLoading] = useState(false);
